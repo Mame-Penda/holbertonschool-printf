@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
+#include <_putchar.c>
 
 /**
  * _printf - Custom implementation of printf function
@@ -14,7 +15,7 @@ int _printf(const char *format, ...)
     const char *ptr;
 
     if (!format)
-        return (-1); // Return -1 for NULL format
+        return (-1); /* Return -1 for NULL format */
 
     va_start(args, format);
     ptr = format;
@@ -24,13 +25,13 @@ int _printf(const char *format, ...)
         if (*ptr == '%')
         {
             ptr++;
-            if (*ptr == 'c') // Handle char
+            if (*ptr == 'c') /* Handle the char c */
             {
                 char c = (char)va_arg(args, int);
-                write(1, &c, 1);
+                _putchar(&c);
                 count++;
             }
-            else if (*ptr == 's') // Handle string
+            else if (*ptr == 's') /* Handle the string */
             {
                 char *str = va_arg(args, char *);
                 if (!str)
@@ -42,19 +43,19 @@ int _printf(const char *format, ...)
                     count++;
                 }
             }
-            else if (*ptr == '%') // Handle %%
+            else if (*ptr == '%') /* Handle the % character */
             {
                 write(1, "%", 1);
                 count++;
             }
-            else if (*ptr) // Handle unknown specifier
+            else if (*ptr) /* Handle unknow specifiers */
             {
                 write(1, "%", 1);
                 write(1, ptr, 1);
                 count += 2;
             }
         }
-        else // Handle normal characters
+        else /* Handle the normal characters */
         {
             write(1, ptr, 1);
             count++;
