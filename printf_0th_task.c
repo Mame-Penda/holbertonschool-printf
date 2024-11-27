@@ -1,6 +1,6 @@
+#include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
-#include <_putchar.c>
 
 /**
  * _printf - Custom implementation of printf function
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
             if (*ptr == 'c') /* Handle the char c */
             {
                 char c = (char)va_arg(args, int);
-                _putchar(&c);
+                _putchar(c);
                 count++;
             }
             else if (*ptr == 's') /* Handle the string */
