@@ -3,7 +3,7 @@
  * print_char - displays the character selected
  * @args: list or arguments to print
  *
- * Return : number of printed characters
+ * Return: number of printed characters
  */
 int print_char(va_list args)
 {
@@ -34,7 +34,7 @@ int print_string(va_list args)
  * print_percent - displays a character '%'
  * @args: List of arguments not used
  * 
- * Return : Number of printed character
+ * Return: Number of printed character
  */
 int print_percent(va_list args)
 {
