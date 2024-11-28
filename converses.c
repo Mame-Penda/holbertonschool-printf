@@ -2,38 +2,34 @@
 #include <stdarg.h>
 #include <unistd.h>
 /**
- * print -  Prints a character to the standard output
+ * _print - Custom printf function to handle %d and %i format specifiers
+ * @format: string that may contain format specifiers (%d or %i)
  *
  * Return: count
  */
 int _print(const char *format, ...)
 {
 va_list args;
-int i, count = 0;
-
-if (!format)
-return (-1);
+int count = 0;
 
 va_start(args, format);
-for (i = 0; format[i] != '\0'; i++)
-{
-if (format[i] == '%')
-{
-i++;
-if (format[i] == 'd' || format[i] == 'i')
-count += print_number(va_arg(args, int));
-else if (format[i] == '%')
-count += _putchar('%');
-else
-{
-count += _putchar('%');
-count += _putchar(format[i]);
-}
-}
-else
-count += _putchar(format[i]);
-}
-va_end(args);
 
+while (*format)
+{
+if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
+{
+int num = va_arg(args, int);
+count += print_number(num);
+format++;
+}
+else
+{
+_putchar(*format);
+count++;
+}
+format++;
+}
+
+va_end(args);
 return (count);
 }
