@@ -1,33 +1,38 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
 
-int _print(const char *format, ...)
+/**
+ * _print - function that prints a given character or string.
+ * @format: holds the caracter or the string to print
+ * Return
+ **/
+int print(const char *format, ...)
 {
+	int i = 0, len = 0;
 	va_list args;
-	int i, count = 0;
 
-	if (!format)
-		return (-1);
 	va_start(args, format);
-	for (i = 0; format[i] != '\0'; i++)
+
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			if (format[i] == 'd' || format[i] == 'i')
-				count += print_number(va_arg(args, int));
-			else if (format[i] == '%')
-				count += _putchar('%');
-			else
-			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
-			}
+			len += specifier(format[i + 1], args);
+			i += 2;
 		}
 		else
-			count += _putchar(format[i]);
+		{
+			len++;
+			_putchar(format[i]);
+			i++;
+		}
 	}
 	va_end(args);
-	return (count);
+
+	return (len);
 }
