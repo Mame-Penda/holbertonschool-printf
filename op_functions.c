@@ -5,12 +5,12 @@
  *
  * Return : number of printed characters
  */
-int print_char(va_list agrs)
+int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 
 	_putchar(c);
-	return (1)
+	return (1);
 }
 /**
  * print_string - display a string with i number of chars
@@ -60,11 +60,11 @@ int print_integer(va_list args)
 	}
 	if (value < 10)
 		return(char_count += _putchar(value + '0'));
-	temp = value;
-	while (temp > 9)
+	temps = value;
+	while (temps > 9)
 	{
 		multiplier *= 10;
-		temp /= 10;
+		temps /= 10;
 	}
 	while (multiplier >= 1)
 	{

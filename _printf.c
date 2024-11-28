@@ -1,13 +1,13 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
-
 /**
- * _printf - function that prints a given character or string.
- * @format: holds the caracter or the string to print
- * Return: Total number of characters printed
- **/
-int printf(const char *format, ...)
+ * _printf - Produces formatted output.
+ * @format: Format string containing the text and format specifiers.
+ *
+ * Return: Total number of characters printed.
+ */
+int _printf(const char *format, ...)
 {
 	int i = 0, len = 0;
 	int j;
@@ -24,7 +24,7 @@ int printf(const char *format, ...)
 			i++;
 			if (format[i] == 'c')
 				len += _putchar(va_arg(args, int));
-			else if	(format[i] == 's')
+			else if (format[i] == 's')
 			{
 				char *str = va_arg(args, char *);
 
@@ -37,7 +37,7 @@ int printf(const char *format, ...)
 				len += _putchar('%');
 			else
 			{
-				len += _putchar('%')
+				len += _putchar('%');
 				len += _putchar(format[i]);
 			}
 		}
