@@ -1,33 +1,69 @@
 #include "main.h"
 #include <stdarg.h>
-#include <unistd.h>
-
-int _print(const char *format, ...)
+int (*check_format(const char *format))(va_list)
 {
-	va_list args;
-	int i, count = 0;
+	int i = 0;
+    print_t p[] = {
+        {"c", print_c},
+        {"s", print_s},
+        {"d", print_d},
+        {"i", print_i},
+        {NULL, NULL}
+    };
 
-	if (!format)
+    for (; p[i].t != NULL; i++)
+    {
+        if (*(p[i].t) == *format)
+		break;
+    }
+    return (p[i].f);
+}
+
+/**
+ * _printf - function for format printing
+ * @format: list of arguments to printing
+ * Return: Number of characters
+ */
+int _printf(const char *format, ...)
+{
+	va_list ap;
+	int (*f)(va_list);
+	unsigned int i = 0, counter = 0;
+
+	if (format == NULL)
 		return (-1);
-	va_start(args, format);
-	for (i = 0; format[i] != '\0'; i++)
+	va_start(ap, format);
+	while (format && format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
 		{
+			_putchar(format[i]);
+			counter++;
 			i++;
-			if (format[i] == 'd' || format[i] == 'i')
-				count += print_number(va_arg(args, int));
-			else if (format[i] == '%')
-				count += _putchar('%');
-			else
-			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
-			}
+			continue;
 		}
 		else
-			count += _putchar(format[i]);
+		{
+			if (format[i + 1] == '%')
+			{
+				_putchar('%');
+				counter++;
+				i += 2;
+				continue;
+			}
+
+			else
+			{
+				f = check_format(&format[i + 1]);
+				if (f == NULL)
+					return (-1);
+				i += 2;
+				counter += f(ap);
+				continue;
+			}
+		}
+		i++;
 	}
-	va_end(args);
-	return (count);
+	va_end(ap);
+	return (counter);
 }
