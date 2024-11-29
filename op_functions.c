@@ -33,7 +33,7 @@ int print_string(va_list args)
 /**
  * print_percent - displays a character '%'
  * @args: List of arguments not used
- * 
+ *
  * Return: Number of printed character
  */
 int print_percent(va_list args)
