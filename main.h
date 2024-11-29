@@ -14,7 +14,7 @@
 typedef struct op
 {
 	char *specifier;
-	int(*func)(va_list args);
+	int (*func)(va_list args);
 } op_t;
 
 int _printf(const char *format, ...);
