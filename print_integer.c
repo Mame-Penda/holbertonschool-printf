@@ -7,18 +7,16 @@
  */
 int print_integer(va_list args)
 {
-	int arg = va_arg(args, int);
+	long int num = va_arg(args, int);
 	int pow = 1;
 	int len = 0;
-	unsigned int num;
 
-	if (arg < 0)
+	if (num < 0)
 	{
 		_putchar('-');
-			arg *= -1;
+		num = -num;
 		len++;
 	}
-	num = va_arg(args, unsigned int);
 	if (num == 0)
 	{
 		_putchar('0');
