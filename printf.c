@@ -1,5 +1,10 @@
 #include "main.h"
 #include <stdarg.h>
+/**
+ * check_format: checks if there is valid format
+ * @format: possible valid for specifier
+ * Return: a pointer to valid function or NULL
+ */
 int (*check_format(const char *format))(va_list)
 {
 	int i = 0;
@@ -18,7 +23,11 @@ int (*check_format(const char *format))(va_list)
     }
     return (p[i].f);
 }
-
+/**
+ * _printf - function for format printing
+ * @format: list of arguments
+ * Return: number of character to printing
+ */ 
 int _printf(const char *format, ...)
 {
 	va_list ap;
