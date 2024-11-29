@@ -42,34 +42,3 @@ int print_percent(va_list args)
 	_putchar('%');
 	return (1);
 }
-/**
- * print_integer - display an integer
- * @args: List of arguments
- *
- * Return: number of arguments not used
- */
-int print_integer(va_list args)
-{
-	long int temps, value = va_arg(args, int);
-	int multiplier = 1, char_count = 0;
-
-	if (value < 0)
-	{
-		char_count += _putchar ('-');
-		value = -value;
-	}
-	if (value < 10)
-		return(char_count += _putchar(value + '0'));
-	temps = value;
-	while (temps > 9)
-	{
-		multiplier *= 10;
-		temps /= 10;
-	}
-	while (multiplier >= 1)
-	{
-		char_count += _putchar(((value / multiplier) % 10) + '0');
-		multiplier /= 10;
-	}
-	return (char_count);
-}
