@@ -14,6 +14,8 @@ int (*get_op_function(char specifier))(va_list)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"i", print_integer},
+		{"d", print_integer},
 		{NULL, NULL}
 	};
 	while (ops[i].specifier)

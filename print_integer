@@ -5,7 +5,7 @@
  * @args: list of arguments
  * Return: int , lenght
  */
-int print_i_d(va_list args)
+int print_integer(va_list args)
 {
 	int arg = va_arg(args, int);
 	int pow = 1;
