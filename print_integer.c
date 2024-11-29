@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_i_d - prints an integer
+ * print_integer - prints an integer
  * @args: list of arguments
  * Return: int , lenght
  */
