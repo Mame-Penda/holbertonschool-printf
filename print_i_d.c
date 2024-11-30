@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_integer - prints an integer
+ * print_i_d - prints an integer
  * @args: list of arguments
  * Return: int , lenght
  */
-int print_integer(va_list args)
+int print_i_d(va_list args)
 {
 	int arg = va_arg(args, int);
 	int pow = 1, len = 0;

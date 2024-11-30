@@ -18,11 +18,12 @@ typedef struct op
 } op_t;
 
 int _printf(const char *format, ...);
-int print_integer(va_list args);
+int print_i_d(va_list);
 int _putchar(char c);
 int print_char(va_list args);
 int print_percent(va_list args);
 int (*get_op_function(char specifier))(va_list);
-int specifier(const char c, va_list args);
+int specifier(const char c, va_list args, int i, int *len,
+    op_t *option);
 int print_string(va_list args);
 #endif
