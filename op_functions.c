@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_char - displays the character selected
- * @args: list or arguments to print
+ * @args: current char to print
  *
  * Return: number of printed characters
  */
@@ -14,7 +14,7 @@ int print_char(va_list args)
 }
 /**
  * print_string - display a string with i number of chars
- * @args: list or arguments to print
+ * @args: list or arguments to print since its a str
  *
  * Return: number of printed characters
  */
@@ -32,7 +32,7 @@ int print_string(va_list args)
 }
 /**
  * print_percent - displays a character '%'
- * @args: List of arguments not used
+ * @args: current char to print
  *
  * Return: Number of printed character
  */

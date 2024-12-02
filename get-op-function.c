@@ -2,10 +2,10 @@
 #include <stddef.h>
 
 /**
- * get_op_function - return a function to the corresponding specifier
- * @specifier: the format specifier
+ * get_op_function - return a function to the corresponding specifier.
+ * @specifier: the format specifier.
  *
- * Return: pointer to the corresponding function or nill if not found
+ * Return: pointer to the corresponding function or null if its not found.
  */
 int (*get_op_function(char specifier))(va_list)
 {
