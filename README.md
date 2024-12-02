@@ -18,3 +18,5 @@ Basic knowledge of C programming, specifically with respect to:
 Variadic functions
 Function pointers
 Handling format specifiers
+
+![Capture fPNG](https://github.com/user-attachments/assets/9c316169-83c0-4c59-aac8-2c99f6bbbd2a)
