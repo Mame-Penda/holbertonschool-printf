@@ -1,0 +1,42 @@
+.TH PRINTF 3 "2 September 2024" "Holberton School Project" "Libraby Functions"
+
+.SH NAME
+_printf \- produces formatted output
+
+.SH SYNOPSIS
+#include <stdio.h>
+int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+to the standart output (stdout) according to the provided format(string, number or char)
+
+The _printf function is a printf function just like the standard one.
+
+Format specifiers that are supported:
+.IP %c
+Prints a single char.
+.IP %s
+Prints a string of characters (null-terminated).
+.IP %%
+Prints a '%'
+.IP %d
+Prints a decimal number with a base of 10.
+.IP %i
+Prints a signed integer.
+
+The functions procceses the format string till the null-byte and prints the char in the output.
+
+.SH PARAMETERS
+.TP
+format
+a pointer containing the format specifers, chars to be printed.
+
+.SH RETURN VALUE
+On sucess, _printf returns the total number of characters printed (excluding the null byte.
+
+.SH ERROR
+if the format is a NULL on contains only a percent wiht no specifier after it will return -1
+
+.SH AUTHORS
+Arnaud Bonnet, Mame Penda.
+
